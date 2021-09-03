@@ -70,5 +70,8 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-### Benefits using commitlint
+### Conventional Commits References
 - [Why Use Conventional Commits?](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits)
+- [The Angular Convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
+- [Husky](https://typicode.github.io/husky/#/)
+- [Commitlint](https://commitlint.js.org/#/)
