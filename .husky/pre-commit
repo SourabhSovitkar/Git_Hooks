@@ -1,0 +1,33 @@
+#!/bin/sh
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NO_COLOR='\033[0m'
+
+if [ ! -f "$(dirname "$0")/_/husky.sh" ]; then
+  printf "%bERROR%b: Git hooks not configured...\n" "$RED" "$NO_COLOR"
+  printf '* To enable git hooks run: %bnpx husky install%b\n' "$BLUE" "$NO_COLOR"
+  printf '%b* Installing git hooks by husky%b\n' "$RED" "$NO_COLOR"
+  npx husky install
+  printf '%bHusky - Git hooks enabled%b\n'"$GREEN" "$NO_COLOR"
+fi
+
+# shellcheck source=./_/husky.sh
+. "$(dirname "$0")/_/husky.sh"
+
+printf "%b>>> Checking commit...%b\n" "$GREEN" "$NO_COLOR"
+
+# Checking for files
+# git diff- Show changes between commits, commit and working tree, etc
+# --cached- Show changes between the working tree and the index or a tree, changes between the index and a tree, changes between two trees, or changes between two files on disk.
+# --name-only- Show only names of changed files.
+
+if [ !  $(git diff --cached --name-only) ]; then
+  printf "%b* Changes not staged for commit...%b\n" "$RED" "$NO_COLOR"
+  printf "%b* use \"git add <file>...\" to update what will be committed%b\n" "$BLUE" "$NO_COLOR"
+  printf "%b* use \"git restore <file>...\" to discard changes in working directory%b\n" "$BLUE" "$NO_COLOR"
+  exit 1
+fi
+
+printf "%b>>> Syntax- <type>(scope): <description>%b\n" "$GREEN" "$NO_COLOR"
