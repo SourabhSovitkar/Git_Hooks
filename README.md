@@ -69,3 +69,6 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+### Benefits using commitlint
+- [Why Use Conventional Commits?](https://www.conventionalcommits.org/en/v1.0.0-beta.2/#why-use-conventional-commits)
