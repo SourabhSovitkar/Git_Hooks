@@ -23,7 +23,7 @@ printf "%b>>> Checking code formatting...%b\n" "$GREEN" "$NO_COLOR"
 # grep -print lines matching a pattern, By  default,  grep  prints the matching lines.
 # -E- Matcher Selection -E, --extended-regexp
 # '\.(ts|js)$'- Interpret PATTERN as an extended regular expression
-for file in $(git diff --cached --name-only | grep -E '\.(ts|js)$')
+for file in $(git diff --cached --name-only | grep -E '\.(ts|js|json)$')
 do
   git show ":$file"  | npm run prettier:fix --stdin --stdin-filename "$file"
   printf "* Prettier fix for file: %b"$file"%b\n" "$BLUE" "$NO_COLOR"
