@@ -9,6 +9,10 @@ If the checks fail then the commit is not made and an error shown, while if all 
 Pre-commit checks are commonly used to run linting scripts and tests, allowing each commit to be as clean as possible. 
 As the lint-staged docs state, they prevent ‘💩 slipping into your code base!’.
 
+## Description
+
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository with husky and commitlint
+
 ## Install Husky
 ```bash
 npm i husky --save-dev
@@ -68,6 +72,19 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
 ```
 
 ### Conventional Commits References
