@@ -42,7 +42,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 
 ## App Installation
 ```bash
-# Install dependancy from package.json
+# Install dependency from package.json
 $ npm install
 ```
 
