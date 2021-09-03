@@ -17,7 +17,9 @@ npx husky install
 
 # Add hook
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'
+```bash
 # or
+```
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 
 # Create a hook
@@ -39,13 +41,12 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 3. npx commitlint --from HEAD~1 --to HEAD --verbose
 
 ## App Installation
-
 ```bash
+# Install dependancy from package.json
 $ npm install
 ```
 
 ## Running the app
-
 ```bash
 # development
 $ npm run start
