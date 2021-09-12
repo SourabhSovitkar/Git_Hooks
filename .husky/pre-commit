@@ -22,8 +22,11 @@ printf "%b>>> Checking commit...%b\n" "$GREEN" "$NO_COLOR"
 # git diff- Show changes between commits, commit and working tree, etc
 # --cached- Show changes between the working tree and the index or a tree, changes between the index and a tree, changes between two trees, or changes between two files on disk.
 # --name-only- Show only names of changed files.
+# --numstat Similar to --stat, but shows number of added and deleted lines in decimal notation and pathname without abbreviation
+# wc - print newline, word, and byte counts for each file
+# -l, --lines print the newline counts
 
-if [ !  $(git diff --cached --name-only) ]; then
+if [ $(git diff --cached --numstat | wc -l) eq "0" ]; then
   printf "%b* Changes not staged for commit...%b\n" "$RED" "$NO_COLOR"
   printf "%b* use \"git add <file>...\" to update what will be committed%b\n" "$BLUE" "$NO_COLOR"
   printf "%b* use \"git restore <file>...\" to discard changes in working directory%b\n" "$BLUE" "$NO_COLOR"
